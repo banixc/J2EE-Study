@@ -11,6 +11,7 @@ import java.io.*;
 public class Login extends HttpServlet {
 
     private static final String REMEMBER = "remember";
+    private static final String NOT_REMEMBER = "not_remember";
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
@@ -18,49 +19,30 @@ public class Login extends HttpServlet {
         String password = req.getParameter("password");
         boolean remember = REMEMBER.equals(req.getParameter("remember"));
 
-        int judge = 0b000;
-        Cookie cookies[] = req.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("name")) {
-                    cookie.setValue(name);
-                    judge |= 0b001;
-                }
-                if (cookie.getName().equals("password")) {
-                    if(remember) {
-                        cookie.setValue(password);
-                        judge |= 0b010;
-                    } else {
-                        cookie.setValue(null);
-                    }
-                }
-                if (cookie.getName().equals("remember")) {
-                    if(remember) {
-                        cookie.setValue(REMEMBER);
-                        judge |= 0b100;
-                    } else {
-                        cookie.setValue(null);
-                    }
-                }
-            }
-        }
+        String password_s = remember?password:NOT_REMEMBER;
+        String remember_s = remember?REMEMBER:NOT_REMEMBER;
 
-        //新建name
-        if (0 == (judge & 0b001)) {
-            addCookie(res, "name", name);
-        }
+        //新建cookie
+        addCookie(res, "name", name);
+        addCookie(res, "password", password_s);
+        addCookie(res, "remember", remember_s);
 
-        //新建password
-        if (0 == (judge & 0b010)) {
-            addCookie(res, "password", password);
-        }
+        PrintWriter out = res.getWriter();
+        res.setContentType("text/html");
 
-        //新建remember
-        if (0 == (judge & 0b100)) {
-            addCookie(res, "remember", REMEMBER);
-        }
+        out.println("<html>");
+        out.println("<title>");
+        out.println("User list");
+        out.println("</title>");
+        out.println("Login success!<br />");
+        out.println("<body><h4>User List:</h4><hr><br>");
 
-        doGet(req,res);
+        printKey(out, "name", name);
+        printKey(out, "password", password_s);
+        printKey(out, "remember", remember_s);
+        out.println("</body>");
+        out.println("</html>");
+        out.close();
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
