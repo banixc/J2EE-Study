@@ -17,3 +17,4 @@ hs_err_pid*
 out/
 
 !/web/resources/bookCode.jar
+!/ex1/web/resources/bookCode.jar
