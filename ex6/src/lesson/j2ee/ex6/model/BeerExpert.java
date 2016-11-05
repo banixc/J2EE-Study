@@ -5,51 +5,51 @@ import java.sql.*;
 
 public class BeerExpert {
 
-	public List getBrands(String rootpath, String color) {
-		Connection conn = null;
-		List brands = new ArrayList();
-		try {
-			conn = AccessJDBCUtil.getAccessDBConnection(rootpath + "db/ex6.mdb");
-			Statement stmt = conn.createStatement();
-
-			if (color.equals("light")) {
-				String queryString = "SELECT name FROM beer WHERE color = 'light'";
-				ResultSet rs = stmt.executeQuery(queryString);
-				while (rs.next()) {
-					brands.add(rs.getString(1));
-				}
-			} else if (color.equals("amber")) {
-				String queryString = "SELECT name FROM beer WHERE color = 'amber'";
-				ResultSet rs = stmt.executeQuery(queryString);
-				while (rs.next()) {
-					brands.add(rs.getString(1));
-				}
-			} else if (color.equals("brown")) {
-				String queryString = "SELECT name FROM beer WHERE color = 'brown'";
-				ResultSet rs = stmt.executeQuery(queryString);
-				while (rs.next()) {
-					brands.add(rs.getString(1));
-				}
-			} else {
-				String queryString = "SELECT name FROM beer WHERE color = 'dark'";
-				ResultSet rs = stmt.executeQuery(queryString);
-				while (rs.next()) {
-					brands.add(rs.getString(1));
-				}
-			}
-			return (brands);
-		} catch (SQLException s) {
-			System.out.println(s);
-			return null;
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException ignore) {
-				}
-			}
-		}
-	}
+//	public List getBrands(String rootpath, String color) {
+//		Connection conn = null;
+//		List brands = new ArrayList();
+//		try {
+//			conn = AccessJDBCUtil.getAccessDBConnection(rootpath + "db/ex6.mdb");
+//			Statement stmt = conn.createStatement();
+//
+//			if (color.equals("light")) {
+//				String queryString = "SELECT name FROM beer WHERE color = 'light'";
+//				ResultSet rs = stmt.executeQuery(queryString);
+//				while (rs.next()) {
+//					brands.add(rs.getString(1));
+//				}
+//			} else if (color.equals("amber")) {
+//				String queryString = "SELECT name FROM beer WHERE color = 'amber'";
+//				ResultSet rs = stmt.executeQuery(queryString);
+//				while (rs.next()) {
+//					brands.add(rs.getString(1));
+//				}
+//			} else if (color.equals("brown")) {
+//				String queryString = "SELECT name FROM beer WHERE color = 'brown'";
+//				ResultSet rs = stmt.executeQuery(queryString);
+//				while (rs.next()) {
+//					brands.add(rs.getString(1));
+//				}
+//			} else {
+//				String queryString = "SELECT name FROM beer WHERE color = 'dark'";
+//				ResultSet rs = stmt.executeQuery(queryString);
+//				while (rs.next()) {
+//					brands.add(rs.getString(1));
+//				}
+//			}
+//			return (brands);
+//		} catch (SQLException s) {
+//			System.out.println(s);
+//			return null;
+//		} finally {
+//			if (conn != null) {
+//				try {
+//					conn.close();
+//				} catch (SQLException ignore) {
+//				}
+//			}
+//		}
+//	}
 
 
 	public List getBrands(String color) {

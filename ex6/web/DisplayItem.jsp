@@ -15,7 +15,7 @@
 <b><a href="SelectedBeerColor.jsp">(View the selected beer colors).</a></b>
 <p><b>Choose following information:</b></p>
 <%--<form method="post" action="ShoppingCart.do">--%>
-<form method="post" action="ShopCart.jsp">
+<form method="post" action="ShoppingCart.do">
   <table width="500" border="0" cellspacing="0" cellpadding="0">
     <mytag:beerList color="${param.color}" />
   </table>

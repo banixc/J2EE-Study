@@ -1,5 +1,8 @@
 package lesson.j2ee.ex6;
 
+import lesson.j2ee.ex6.model.Beer;
+import lesson.j2ee.ex6.model.BeerList;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
@@ -35,13 +38,20 @@ public class ShoppingCart extends HttpServlet {
 			}
 		}
 
+		BeerList list = new BeerList();
+
+		for(int i = 1; i<= itemCount; i++){
+			list.addBeer((String) session.getAttribute("item"+i));
+		}
+
+
 		out.println("<html>");
 		out.println("<title>");
 		out.println("item list");
 		out.println("</title>");
 		out.println("<body><h4>Session List:</h4><hr><br><br>");
-		for(int i = 1; i<= itemCount; i++){
-			out.println(session.getAttribute("item"+i) +"<hr>");
+		for(Beer beer:list) {
+			out.println(beer.getName() + ": " + beer.getNum() +"<hr>");
 		}
 		out.println("</body>");
 		out.println("</html>");

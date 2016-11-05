@@ -15,7 +15,7 @@
 <!-- Commit to a Servlet Page -->
 <form method="POST" action="BeerList.jsp" >
 <!-- Commit to a JSP Page -->
-<!-- <form method="POST" action="BeerList.jsp">-->
+<!-- <form method="POST" action="BeerListTag.jsp">-->
 This application has been visited  
 <mytag:counter/> 
   times.<p> 

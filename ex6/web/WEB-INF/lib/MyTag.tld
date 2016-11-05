@@ -20,7 +20,7 @@
 	</tag>
 	<tag>
 		<name>beerList</name>
-		<tag-class>lesson.j2ee.ex6.model.BeerList</tag-class>
+		<tag-class>lesson.j2ee.ex6.model.BeerListTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
 			<name>color</name>

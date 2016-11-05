@@ -66,6 +66,7 @@ public class UnAuthRequestFilter implements Filter{
 
         if (flag) {
             httprep.sendRedirect(redirectPath);
+            System.out.println(httpreq.getRequestURI() +  " is redirected");
         } else {
             filterChain.doFilter(request, response);
         }
