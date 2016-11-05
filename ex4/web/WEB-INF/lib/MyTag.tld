@@ -29,4 +29,10 @@
 
     </tag>
 
+    <tag>
+        <name>simpleTag</name>
+        <tag-class>lesson.j2ee.ex4.SimpleTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
 </taglib>

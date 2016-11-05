@@ -13,8 +13,5 @@
 <h4>Session List:</h4><hr><br><br>
 <mytag:formatSelect selectList="${sessionScope.sessionList}"/>
 
-<%--<c:forEach var="selected" items="${sessionList}">--%>
-<%--${selected}<hr>--%>
-<%--</c:forEach>--%>
 </body>
 </html>

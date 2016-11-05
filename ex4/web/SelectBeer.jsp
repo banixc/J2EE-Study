@@ -17,7 +17,7 @@
 <!-- Commit to a JSP Page -->
 <form method="POST" action="BeerList.jsp">
 This application has been visited  
-<mytag:counter/> 
+<mytag:simpleTag/>
   times.<p> 
   There are kinds of beer for choose.<p>
  <mytag:colorSelect/>

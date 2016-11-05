@@ -14,14 +14,9 @@
 <h1 align="center">The beer corlor that you selected is ${param.color}.</h1>
 <b><a href="SelectedBeerColor.jsp">(View the selected beer colors).</a></b>
 <p><b>Choose following information:</b></p>
-<form method="post" action="ShoppingCart.do">
+<form method="post" action="ShowCart.jsp">
     <table width="500" border="0" cellspacing="0" cellpadding="0">
-        <%
-            final String[] list = {"The light beer of China", "The amber beer of China", "The beer of American"};
-            request.setAttribute("beerList", list);
-        %>
-
-        <c:forEach var="beer" items="${beerList}" varStatus="bCount">
+        <c:forEach var="beer" items="The light beer of China, The amber beer of China, The beer of American" varStatus="bCount">
             <tr>
                 <td width="69">
                     <input type="checkbox" name="item" value="${beer}">
