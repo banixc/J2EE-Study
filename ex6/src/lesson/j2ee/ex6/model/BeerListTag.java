@@ -8,17 +8,16 @@ import java.util.List;
 
 /**
  * Created by Banixc on 2016/11/5.
+ * 显示对应颜色的啤酒
  */
 public class BeerListTag extends SimpleTagSupport {
     private String color;
 
     public void doTag() throws JspException, IOException {
-        List<BeerItem> beers;
         BeerExpert be = new BeerExpert();
-        beers = (List<BeerItem>) be.getBrands(color);
+        List<BeerItem> beers = (List<BeerItem>) be.getBrands(color);
         String outPrint = "";
         for (BeerItem beer:beers) {
-            JspWriter out = getJspContext().getOut();
             outPrint += String.format("<tr><td width=\"69\"><input type=\"checkbox\" name=\"item\" value=\"%s\"></td><td width=\"431\">Item%d: %s</td></tr>",beer.getAllName(),beer.getId(),beer.getAllName());
         }
         JspWriter out = getJspContext().getOut();

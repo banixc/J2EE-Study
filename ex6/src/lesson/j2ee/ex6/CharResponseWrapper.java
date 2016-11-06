@@ -5,25 +5,25 @@ import javax.servlet.http.*;
 import java.io.*;
 
 /**
- * Ê¹ÓÃjava.io.CharArrayWriterÀà¶ÔÊä³öµÄÎÄ±¾½á¹û½øĞĞ°ü×°
+ * ä½¿ç”¨java.io.CharArrayWriterç±»å¯¹è¾“å‡ºçš„æ–‡æœ¬ç»“æœè¿›è¡ŒåŒ…è£…
  */
 public class CharResponseWrapper extends HttpServletResponseWrapper {
-	protected CharArrayWriter charWriter;// ½«ÏìÓ¦»º´æÔÚÕâ¸öĞ´ÈëÆ÷ÖĞ
+	protected CharArrayWriter charWriter;// å°†å“åº”ç¼“å­˜åœ¨è¿™ä¸ªå†™å…¥å™¨ä¸­
 	protected PrintWriter writer;
 	protected boolean getOutputStreamCalled;
 	protected boolean getWriterCalled;
 
 	public CharResponseWrapper(HttpServletResponse response) {
 		super(response);
-		// ´´½¨writer
+		// åˆ›å»ºwriter
 		charWriter = new CharArrayWriter();
 	}
 
 	/**
-	 * ÖØÔØgetOutputStream()·½·¨
+	 * é‡è½½getOutputStream()æ–¹æ³•
 	 */
 	public ServletOutputStream getOutputStream() throws IOException {
-		// Èç¹ûgetWriter()·½·¨±»µ÷ÓÃÁË£¬¾Í²»ÄÜµ÷ÓÃgetOutputStream()·½·¨
+		// å¦‚æœgetWriter()æ–¹æ³•è¢«è°ƒç”¨äº†ï¼Œå°±ä¸èƒ½è°ƒç”¨getOutputStream()æ–¹æ³•
 		if (getWriterCalled) {
 			throw new IllegalStateException("getWriter already called");
 		}
@@ -32,13 +32,13 @@ public class CharResponseWrapper extends HttpServletResponseWrapper {
 	}
 
 	/**
-	 * ÖØÔØgetWriter()·½·¨
+	 * é‡è½½getWriter()æ–¹æ³•
 	 */
 	public PrintWriter getWriter() throws IOException {
 		if (writer != null) {
 			return writer;
 		}
-		// Èç¹ûgetOutputStream()·½·¨±»µ÷ÓÃÁË£¬¾Í²»ÄÜµ÷ÓÃ·½·¨getWriter()
+		// å¦‚æœgetOutputStream()æ–¹æ³•è¢«è°ƒç”¨äº†ï¼Œå°±ä¸èƒ½è°ƒç”¨æ–¹æ³•getWriter()
 		if (getOutputStreamCalled) {
 			throw new IllegalStateException("getOutputStream already called");
 		}
@@ -48,7 +48,7 @@ public class CharResponseWrapper extends HttpServletResponseWrapper {
 	}
 
 	/**
-	 * ½«ÏìÓ¦Êı¾İÓÃ×Ö·û´®·µ»Ø
+	 * å°†å“åº”æ•°æ®ç”¨å­—ç¬¦ä¸²è¿”å›
 	 */
 	public String toString() {
 		String s = null;

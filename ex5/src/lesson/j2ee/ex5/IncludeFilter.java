@@ -7,6 +7,7 @@ import java.io.IOException;
 
 /**
  * Created by Banixc on 2016/11/5.
+ * IncludeFilter 用于处理所有的包含动作，自动在输出流前加上特定的文字
  */
 public class IncludeFilter implements Filter {
 
@@ -33,6 +34,7 @@ public class IncludeFilter implements Filter {
 
             String text = newResponse.toString();
             if (text != null) {
+                //添加对应的文本
                 text = "This is an included section!" + text;
                 // 将输出的内容传给真正的输出流返回客户端
                 servletResponse.getWriter().write(text);

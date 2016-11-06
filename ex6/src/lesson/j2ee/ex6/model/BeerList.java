@@ -1,10 +1,10 @@
 package lesson.j2ee.ex6.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Banixc on 2016/11/5.
+ * 存储Beer的列表 继承ArrayList方便迭代
  */
 public class BeerList extends ArrayList<Beer> {
 

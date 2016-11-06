@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 /**
  * Created by Banixc on 2016/11/5.
+ * 辅助连接MySQL的类
  */
 public class MySQLDBHelper {
     public static final String url = "jdbc:mysql://127.0.0.1/ex6";

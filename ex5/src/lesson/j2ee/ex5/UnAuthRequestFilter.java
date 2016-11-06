@@ -7,6 +7,8 @@ import java.io.IOException;
 
 /**
  * Created by Banixc on 2016/10/31.
+ * UnAuthRequestFilter 过滤器
+ * 所有未验证的GET请求都会被重定向
  */
 public class UnAuthRequestFilter implements Filter{
 
@@ -25,6 +27,7 @@ public class UnAuthRequestFilter implements Filter{
         String redirectPath = httpreq.getContextPath()
                 + config.getInitParameter("redirectPath");
         String includeStrings = config.getInitParameter("includeStrings");
+        //忽略的请求列表
         String ignoreString = config.getInitParameter("ignoreStrings");
         String disableFilter = config.getInitParameter("disableFilter");
 

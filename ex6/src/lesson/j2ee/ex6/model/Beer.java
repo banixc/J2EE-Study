@@ -2,6 +2,8 @@ package lesson.j2ee.ex6.model;
 
 /**
  * Created by Banixc on 2016/11/5.
+ * JavaBean Beer
+ * 转换SessionList中的String为一个对象，合并重复部分为一个数字
  */
 public class Beer {
     String name;

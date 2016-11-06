@@ -51,7 +51,7 @@ public class BeerExpert {
 //		}
 //	}
 
-
+	//从数据库中找出相应的颜色啤酒
 	public List getBrands(String color) {
 		List list = new ArrayList<BeerItem>();
 		String sql = "select * from beer where color = \"" + color + "\"";

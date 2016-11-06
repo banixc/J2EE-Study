@@ -2,6 +2,8 @@ package lesson.j2ee.ex6.model;
 
 /**
  * Created by Banixc on 2016/11/5.
+ * JavaBean: BeerItem
+ * 用于存储从数据库中找到的Beer实体对象
  */
 public class BeerItem {
     int id;
@@ -10,7 +12,7 @@ public class BeerItem {
     String color;
     String manufacturer;
 
-    public BeerItem(int id, String name, String color, String manufacturer) {
+    public BeerItem(int id, String name, String manufacturer, String color) {
         this.id = id;
         this.name = name;
         this.color = color;
@@ -51,7 +53,8 @@ public class BeerItem {
         this.id = id;
     }
 
+    //返回一个总的名称包含名字、类型、以及产地
     public String getAllName() {
-        return "The " + name + " beer of " + manufacturer;
+        return "The " + name + " " + color + " beer of " + manufacturer;
     }
 }
